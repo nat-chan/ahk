@@ -1,11 +1,6 @@
-; 左右 Alt キーの空打ちで IME の OFF/ON を切り替える
-;
-; 左 Alt キーの空打ちで IME を「英数」に切り替え
-; 右 Alt キーの空打ちで IME を「かな」に切り替え
-; Alt キーを押している間に他のキーを打つと通常の Alt キーとして動作
-;
-; AutoHotkey: v1.1.26.01
-; Author:     karakaram   http://www.karakaram.com/alt-ime-on-off
+; 無変換   -> 英数
+; 変換     -> かな
+; CapsLock -> Ctrl
 
 #Include IME.ahk
 
@@ -110,18 +105,19 @@
 *~PgDn::
     Return
 
-; 左 Alt 空打ちで IME を OFF
-LAlt up::
-    if (A_PriorHotkey == "*~LAlt")
-    {
-        IME_SET(0)
-    }
-    Return
+;  変換 vk1Csc079
+;無変換 vk1Dsc07B
+;Space  vk20sc039
+;vk1Csc079 & vk20sc039 :: Send, {Enter}
+;vk1Dsc07B & i:: Send, {PgUp}
 
-; 右 Alt 空打ちで IME を ON
-RAlt up::
-    if (A_PriorHotkey == "*~RAlt")
-    {
-        IME_SET(1)
-    }
-    Return
+; 左 Alt 空打ちで IME を OFF
+;LAlt up::
+;    if (A_PriorHotkey == "*~LAlt")
+;    {
+;        IME_SET(0)
+;    }
+;    Return
+
+vk1Csc079 :: IME_SET(0)
+vk1Dsc07B :: IME_SET(1)

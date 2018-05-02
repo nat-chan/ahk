@@ -2,7 +2,7 @@
 
 ## 概要
 
-[AutoHotkey](https://autohotkey.com/docs/AutoHotkey.htm)
+[AutoHotkey](https://sites.google.com/site/autohotkeyjp/)
 
 * インストール不要
 * 管理者権限必要なし
