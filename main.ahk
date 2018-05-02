@@ -105,7 +105,8 @@
 *~PgDn::
     Return
 
-sc03A::send {LCtrl}
+Capslock::Ctrl
+sc03a::Ctrl
 
 ;  変換 vk1Csc079
 ;無変換 vk1Dsc07B
