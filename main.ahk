@@ -107,6 +107,9 @@
 
 ;Capslock::Ctrl
 sc03a::Ctrl
++sc03A::Ctrl
+^sc03A::Ctrl
+
 
 ;  変換 vk1Csc079
 ;無変換 vk1Dsc07B
