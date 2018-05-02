@@ -105,7 +105,7 @@
 *~PgDn::
     Return
 
-Capslock::Ctrl
+;Capslock::Ctrl
 sc03a::Ctrl
 
 ;  変換 vk1Csc079
