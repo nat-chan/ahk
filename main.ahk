@@ -105,6 +105,8 @@
 *~PgDn::
     Return
 
+sc03A::send {LCtrl}
+
 ;  変換 vk1Csc079
 ;無変換 vk1Dsc07B
 ;Space  vk20sc039
@@ -119,5 +121,5 @@
 ;    }
 ;    Return
 
-vk1Csc079 :: IME_SET(0)
-vk1Dsc07B :: IME_SET(1)
+;vk1Csc079 :: IME_SET(0)
+;vk1Dsc07B :: IME_SET(1)
