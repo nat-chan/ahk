@@ -1,5 +1,7 @@
 # 自分用AutoHotkey
+Win用JISキーボードをMacっぽくする
 
+<!-- {{{TABLE -->
 <table> <tr>
 <td colspan=1>Tab</td>
 <td colspan=2>Q</td>
@@ -14,11 +16,10 @@
 <td colspan=2>P</td>
 <td colspan=2>@</td>
 <td colspan=2>[</td>
-<td colspan=1> </td>
 <td rowspan=2>⏎ </td>
 
 </tr><tr>
-<td colspan=2>Ctrl†</td>
+<td colspan=2>Ctrl❗</td>
 <td colspan=2>A</td>
 <td colspan=2>S</td>
 <td colspan=2>D</td>
@@ -45,29 +46,50 @@
 <td colspan=2>.</td>
 <td colspan=2>/</td>
 <td colspan=2>\</td>
+<td colspan=2>Shift</td>
 </tr><tr>
 <td colspan=2>Ctrl</td>
 <td colspan=2>❖</td>
 <td colspan=2>Alt</td>
-<td colspan=2>英†</td>
+<td colspan=2>英❗</td>
 <td colspan=7> </td>
-<td colspan=2>かな†</td>
+<td colspan=2>かな❗</td>
+<td colspan=2> </td>
+<td colspan=2> </td>
+<td colspan=2> </td>
+<td colspan=2> </td>
+<td colspan=2> </td>
 </tr></table>
+<!-- }}} -->
 
-* ☑無変換   -> 英数†
-* ☑変換     -> かな†
-* ☐CapsLock -> Ctrl†
+## 進捗
 
-## 概要
+☑ 無変換   -> 英数(IME off)  
+☑ 変換     -> かな(IME on)  
+☐ CapsLock -> Ctrl  
 
-[AutoHotkey](http://ahkwiki.net/Top)
+## 前提
 
 * インストール不要
 * 管理者権限必要なし
 
-## 動作環境
+## 雑記
 
-* Windows10
+>CapsLockやかな(カナロック)などのLock系のキーへのキー割り当ては上手く行かない。
+>これはOSのローカライズ段階で発生してる問題であり、
+>フック系のキーカスタマイズユー ティリティ全般で発生する。
+>AutoHotkeyがキーを認識する前の段階で、
+>OS側がキー Up/Down情報を変更してしまっているためである。
+>(※ちなみに日本語キーボードには単独のCapsLockキーは無い)これを解決するには、
+>AutoHotkeyよりも上流でキー信号を捕らえて何らかの加工をする必要がある。
+>具体的には、以下のいずれかの方法を行う。
+>レジストリに手を加えキー信号のリマップを行う。
+>AutoHotkeyよりも上流(ドライバレベル)でのキーアサインが可能なユーティリティ
+>(窓使いの憂鬱,のどか等)を利用する。
+[引用元](https://sites.google.com/site/autohotkeyjp/reference/misc/Trouble)
 
-## 使い方
-コンパイルしてexeをぽちっと
+## 結論
+
+自作キーボードを使うべき
+
+[AutoHotkeyJP](http://ahkwiki.net/Top)
