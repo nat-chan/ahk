@@ -11,7 +11,6 @@
 ;	}
 ;	Return
 
-
 sc07B::IME_SET(0)
 sc079::IME_SET(1)
 ;sc070::a ;Kana

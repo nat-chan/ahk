@@ -4,7 +4,7 @@
 
 ☑ ᔓ   -> 英数(IME off)  
 ☑ ⟳   -> かな(IME on)  
-☐ NICOLA配列  
+☑ NICOLA配列  
 ☐ [親指シフト用キーキャップ](http://shiology.com/shiology/2012/06/2778-120620-b56.html)
 
 <!-- {{{TABLE -->
