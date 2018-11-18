@@ -1,5 +1,11 @@
-# 自分用AutoHotkey
-Win用JISキーボードをMacっぽくする
+# HHKB(JIS配列)でMac風かな/英数、親指シフト
+
+## 進捗
+
+☑ ᔓ   -> 英数(IME off)  
+☑ ⟳   -> かな(IME on)  
+☐ NICOLA配列  
+☐ [親指シフト用キーキャップ](http://shiology.com/shiology/2012/06/2778-120620-b56.html)
 
 <!-- {{{TABLE -->
 <table> <tr>
@@ -14,12 +20,13 @@ Win用JISキーボードをMacっぽくする
 <td colspan=2>I</td>
 <td colspan=2>O</td>
 <td colspan=2>P</td>
-<td colspan=2>@</td>
-<td colspan=2>[</td>
+<td colspan=1>@</td>
+<td colspan=1>[</td>
+<td colspan=1> </td>
 <td rowspan=2>⏎ </td>
 
 </tr><tr>
-<td colspan=2>Ctrl❗</td>
+<td colspan=2>Ctrl</td>
 <td colspan=2>A</td>
 <td colspan=2>S</td>
 <td colspan=2>D</td>
@@ -30,8 +37,8 @@ Win用JISキーボードをMacっぽくする
 <td colspan=2>K</td>
 <td colspan=2>L</td>
 <td colspan=2>;</td>
-<td colspan=2>:</td>
-<td colspan=2>]</td>
+<td colspan=1>:</td>
+<td colspan=1>]</td>
 
 </tr><tr>
 <td colspan=3>Shift</td>
@@ -44,29 +51,26 @@ Win用JISキーボードをMacっぽくする
 <td colspan=2>M</td>
 <td colspan=2>,</td>
 <td colspan=2>.</td>
-<td colspan=2>/</td>
-<td colspan=2>\</td>
-<td colspan=2>Shift</td>
+<td colspan=1>/</td>
+<td colspan=1>\</td>
+<td colspan=1>↑</td>
+<td colspan=1>⇧</td>
 </tr><tr>
-<td colspan=2>Ctrl</td>
-<td colspan=2>❖</td>
+<td colspan=2>Fn</td>
+<td colspan=2>H</td>
+<td colspan=2>◊</td>
 <td colspan=2>Alt</td>
-<td colspan=2>英❗</td>
-<td colspan=7> </td>
-<td colspan=2>かな❗</td>
-<td colspan=2> </td>
-<td colspan=2> </td>
-<td colspan=2> </td>
-<td colspan=2> </td>
-<td colspan=2> </td>
+<td colspan=2>ᔓ</td>
+<td colspan=4> </td>
+<td colspan=2>⟳</td>
+<td colspan=2>Kana</td>
+<td colspan=2>Alt</td>
+<td colspan=2>Fn</td>
+<td colspan=1>←</td>
+<td colspan=1>↓</td>
+<td colspan=1>→</td>
 </tr></table>
 <!-- }}} -->
-
-## 進捗
-
-☑ 無変換   -> 英数(IME off)  
-☑ 変換     -> かな(IME on)  
-☐ CapsLock -> Ctrl  
 
 ## 前提
 
@@ -75,6 +79,7 @@ Win用JISキーボードをMacっぽくする
 
 ## 雑記
 
+CapLockはRemapできないのでハードでなんとかする。
 >CapsLockやかな(カナロック)などのLock系のキーへのキー割り当ては上手く行かない。
 >これはOSのローカライズ段階で発生してる問題であり、
 >フック系のキーカスタマイズユー ティリティ全般で発生する。
@@ -88,8 +93,30 @@ Win用JISキーボードをMacっぽくする
 >(窓使いの憂鬱,のどか等)を利用する。
 [引用元](https://sites.google.com/site/autohotkeyjp/reference/misc/Trouble)
 
-## 結論
-
-自作キーボードを使うべき
-
 [AutoHotkeyJP](http://ahkwiki.net/Top)
+
+あいうえお  　　 ヴ  
+かきくけこ  がぎぐげご  
+さしすせそ  ざじずぜぞ  
+たちつてと  だぢづでど  
+なにぬねの              
+はひふへほ  ばびぶべぼ  ぱぴぷぺぽ  
+まみむめも              
+や　ゆ　よ  ゃ　ゅ　ょ  
+わ　ん　を  ゎ          
+
+単　　　　  同　　　　  逆  
+あいうえお  ぁぃぅぇぉ  　　ヴ　　  
+かきくけこ  がぎぐげご  なにぬねの  
+さしすせそ  ざじずぜぞ  まみむめも  
+たちつてと  だぢづでど  ← ↓ ↑ → っ  
+はひふへほ  ばびぶべぼ  ぱぴぷぺぽ  
+やゆよ、。  ゃゅょ　　  わをん　　  
+
+あ行 か行  
+さ行 た行  
+は行 や行  
+
+飛鳥カナ
+新下駄 中指シフト
+月
