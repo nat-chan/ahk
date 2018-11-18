@@ -3,5 +3,5 @@
 
 #Include IME.ahk
 
-sc07B::IME_SET(1)
+sc07B::IME_SET(0)
 sc079::IME_SET(1)
