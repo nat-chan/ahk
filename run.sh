@@ -1,2 +1,2 @@
 #!/bin/bash
-'/mnt/c/Program Files/AutoHotkey/AutoHotkey.exe' '/r' `uw $1` &
+'/mnt/c/Program Files/AutoHotkey/AutoHotkey.exe' '/r' `wslpath -aw $1` &

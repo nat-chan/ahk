@@ -1,6 +1,9 @@
 ;このファイルの改行コードはLFだが、複文を1行にするためCRを埋め込んである
 #Include IME.ahk
 
+sc07B::IME_SET(0)
+sc079::IME_SET(1)
+
 #If IME_GET() and !GetKeyState(Ctrl) and !GetKeyState(Alt) and !GetKeyState(Shift)
         q::send .         w::send ka        e::send ta        r::send ko             t::send sa 
 sc07B & q::send lasc07B & w::send e sc07B & e::send risc07B & r::send lyasc07B &     t::send re 
