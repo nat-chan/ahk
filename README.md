@@ -2,10 +2,12 @@
 
 ## 進捗
 
-☑ ᔓ   -> 英数(IME off)  
-☑ ⟳   -> かな(IME on)  
-☑ NICOLA配列  
-☐ [親指シフト用キーキャップ](http://shiology.com/shiology/2012/06/2778-120620-b56.html)
+- [x] ᔓ   -> 英数(IME off)  
+- [x] ⟳   -> かな(IME on)  
+- [x] NICOLA配列  
+- [x] Alt+F4でExplorerも閉じる  
+- [x] Win+SpaceでIME切り替えを無効  
+- [ ] [親指シフト用キーキャップ](http://shiology.com/shiology/2012/06/2778-120620-b56.html)
 
 <!-- {{{TABLE -->
 <table> <tr>
