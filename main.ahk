@@ -35,7 +35,8 @@ addX(val){
 }
 
 global v := 0
-sc07B & v::MsgBox,% addX(10)
+;sc07B & v::MsgBox,% addX(10)
+sc07B & f:: :
 
 sc07B & WheelUp::MsgBox, % WheelTrans()
 
