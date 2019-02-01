@@ -22,23 +22,31 @@ sc029::return ;ZenkakuHankaku
 ^!Up::Run    , C:\bin\display.exe /rotate:0   , , Hide
 ^!Down::Run  , C:\bin\display.exe /rotate:180 , , Hide
 
-global var := 255
-WheelTrans(){
-	global var
-	return %var%
-}
-
-addX(val){
-  global v
-  v := v + val
-  return v
+WheelTrans(d){
+	MouseGetPos, x, y, hwnd, ctrl
+	WinGet, Transparent, Transparent, ahk_id %hwnd%
+	if !(Transparent is number) && d < 0{
+		WinSet, Transparent, 255 - d, ahk_id %hwnd%
+		return
+	}
+	Transparent := Transparent + d
+	if (100 <= Transparent && Transparent <= 255){
+		WinSet, Transparent, %Transparent%, ahk_id %hwnd%
+	}
+	return
 }
 
 global v := 0
 ;sc07B & v::MsgBox,% addX(10)
-sc07B & f:: :
+;run python "test.py" %hwnd%
 
-sc07B & WheelUp::MsgBox, % WheelTrans()
+sc07B & f::
+	MouseGetPos, x, y, hwnd, ctrl
+	WinSet, Transparent, 100, ahk_id %hwnd%
+	return
+
+sc07B & WheelUp::WheelTrans(10)
+sc07B & WheelDown::WheelTrans(-10)
 
 sc07B::IME_SET(0)
 sc079::IME_SET(1)

@@ -7,6 +7,7 @@
 - [x] NICOLA配列  
 - [x] Alt+F4でExplorerも閉じる  
 - [x] Win+SpaceでIME切り替えを無効  
+- [x] マウスホイールで透明度変更  
 - [ ] [親指シフト用キーキャップ](http://shiology.com/shiology/2012/06/2778-120620-b56.html)  
 - [ ] TeamViewerでホストとクライアントどちらもahkを立ち上げていると上手く行かないのでTeamViewerにフォーカスが当たっている時はパススルーする
 
