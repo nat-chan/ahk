@@ -15,7 +15,7 @@ return
 ;v1.1.05+からsuper global変数があるが仕様がわからん
 ;sc03a 英数(なぜかトグルする)
 sc070::return ;Kana
-sc029::return ;ZenkakuHankaku
+sc029::Escape
 
 ^!Left::Run  , C:\bin\display.exe /rotate:90  , , Hide
 ^!Right::Run , C:\bin\display.exe /rotate:270 , , Hide
