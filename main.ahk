@@ -8,8 +8,8 @@
 ;TODO 同タイトルの複数ウィンドウを消してしまう
 ;https://sites.google.com/site/autohotkeyjp/reference/Window
 !F4::
-	WinGetActiveTitle, TitleVar 
-	WinClose, %TitleVar%
+    WinGetActiveTitle, TitleVar 
+    WinClose, %TitleVar%
 return
 
 ;v1.1.05+からsuper global変数があるが仕様がわからん
@@ -23,17 +23,17 @@ sc029::Escape
 ^!Down::Run  , C:\bin\display.exe /rotate:180 , , Hide
 
 WheelTrans(d){
-	MouseGetPos, x, y, hwnd, ctrl
-	WinGet, Transparent, Transparent, ahk_id %hwnd%
-	if !(Transparent is number) && d < 0{
-		WinSet, Transparent, 255 - d, ahk_id %hwnd%
-		return
-	}
-	Transparent := Transparent + d
-	if (100 <= Transparent && Transparent <= 255){
-		WinSet, Transparent, %Transparent%, ahk_id %hwnd%
-	}
-	return
+    MouseGetPos, x, y, hwnd, ctrl
+    WinGet, Transparent, Transparent, ahk_id %hwnd%
+    if !(Transparent is number) && d < 0{
+        WinSet, Transparent, 255 - d, ahk_id %hwnd%
+        return
+    }
+    Transparent := Transparent + d
+    if (100 <= Transparent && Transparent <= 255){
+        WinSet, Transparent, %Transparent%, ahk_id %hwnd%
+    }
+    return
 }
 
 global v := 0
@@ -41,9 +41,29 @@ global v := 0
 ;run python "test.py" %hwnd%
 
 sc07B & f::
-	MouseGetPos, x, y, hwnd, ctrl
-	WinSet, Transparent, 100, ahk_id %hwnd%
-	return
+    MouseGetPos, x, y, hwnd, ctrl
+    WinSet, Transparent, 220, ahk_id %hwnd%
+    return
+
+sc07B & g::
+    MouseGetPos, x, y, hwnd, ctrl
+    WinSet, Transparent, 255, ahk_id %hwnd%
+    return
+
+
+sc07B & h::
+    WinGetTitle, currentWindow, A
+    IfWinExist %currentWindow%
+    {
+        WinSet, Style, ^0xC00000
+    }
+;    Send, #left
+;    Send, #up
+    return
+
+;sc07B & j::
+;    Winset, Alwaysontop, , A
+;    return
 
 sc07B & WheelUp::WheelTrans(10)
 sc07B & WheelDown::WheelTrans(-10)
@@ -51,3 +71,4 @@ sc07B & WheelDown::WheelTrans(-10)
 sc07B::IME_SET(0)
 sc079::IME_SET(1)
 
++0::|
