@@ -36,31 +36,31 @@ WheelTrans(d){
     return
 }
 
-global v := 0
-;sc07B & v::MsgBox,% addX(10)
-;run python "test.py" %hwnd%
-
-sc07B & f::
-    MouseGetPos, x, y, hwnd, ctrl
-    WinSet, Transparent, 220, ahk_id %hwnd%
-    return
-
-sc07B & g::
-    MouseGetPos, x, y, hwnd, ctrl
-    WinSet, Transparent, 255, ahk_id %hwnd%
-    return
-
-
-sc07B & h::
-    WinGetTitle, currentWindow, A
-    IfWinExist %currentWindow%
-    {
-        WinSet, Style, ^0xC00000
-    }
-;    Send, #left
-;    Send, #up
-    return
-
+;global v := 0
+;;sc07B & v::MsgBox,% addX(10)
+;;run python "test.py" %hwnd%
+;
+;sc07B & f::
+;    MouseGetPos, x, y, hwnd, ctrl
+;    WinSet, Transparent, 220, ahk_id %hwnd%
+;    return
+;
+;sc07B & g::
+;    MouseGetPos, x, y, hwnd, ctrl
+;    WinSet, Transparent, 255, ahk_id %hwnd%
+;    return
+;
+;
+;sc07B & h::
+;    WinGetTitle, currentWindow, A
+;    IfWinExist %currentWindow%
+;    {
+;        WinSet, Style, ^0xC00000
+;    }
+;;    Send, #left
+;;    Send, #up
+;    return
+;
 ;sc07B & j::
 ;    Winset, Alwaysontop, , A
 ;    return
@@ -72,3 +72,23 @@ sc07B::IME_SET(0)
 sc079::IME_SET(1)
 
 +0::|
+
+; https://superuser.com/questions/950452/how-to-quickly-move-current-window-to-another-task-view-desktop-in-windows-10
+; shift + windows + left
++#Left::
+  WinGetTitle, Title, A
+  WinSet, ExStyle, ^0x80, %Title%
+  Send {LWin down}{Ctrl down}{Left}{Ctrl up}{LWin up}
+  sleep, 50
+  WinSet, ExStyle, ^0x80, %Title%
+  WinActivate, %Title%
+Return
+
++#Right::
+  WinGetTitle, Title, A
+  WinSet, ExStyle, ^0x80, %Title%
+  Send {LWin down}{Ctrl down}{Right}{Ctrl up}{LWin up}
+  sleep, 50
+  WinSet, ExStyle, ^0x80, %Title%
+  WinActivate, %Title%
+Return
