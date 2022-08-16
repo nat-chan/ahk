@@ -5,8 +5,6 @@
 
 ;#Space::return ;Win+SpaceでのIME切り替えを無効
 
-;v1.1.05+からsuper global変数があるが仕様がわからん
-;sc03a 英数(なぜかトグルする)
 sc070::return ;Kana
 sc029::Escape ;全角/半角トグルキー上書き
 
@@ -29,22 +27,17 @@ WheelTrans(d){
     return
 }
 
-
-global v := 0
-;sc07B & v::MsgBox,% addX(10)
-;run python "test.py" %hwnd%
-
 sc07B & a::AppsKey
 
 sc07B & f::
     MouseGetPos, x, y, hwnd, ctrl
     WinSet, Transparent, 220, ahk_id %hwnd%
-    return
+return
 
 sc07B & g::
     MouseGetPos, x, y, hwnd, ctrl
     WinSet, Transparent, 255, ahk_id %hwnd%
-    return
+return
 
 
 sc07B & h::
@@ -53,13 +46,11 @@ sc07B & h::
     {
         WinSet, Style, ^0xC00000
     }
-;    Send, #left
-;    Send, #up
-    return
+return
 
-;sc07B & j::
-;    Winset, Alwaysontop, , A
-;    return
+sc07B & j::
+    Winset, Alwaysontop, , A
+return
 
 sc07B & WheelUp::WheelTrans(10)
 sc07B & WheelDown::WheelTrans(-10)
