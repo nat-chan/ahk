@@ -5,17 +5,10 @@
 
 ;#Space::return ;Win+SpaceでのIME切り替えを無効
 
-;TODO 同タイトルの複数ウィンドウを消してしまう
-;https://sites.google.com/site/autohotkeyjp/reference/Window
-!F4::
-    WinGetActiveTitle, TitleVar 
-    WinClose, %TitleVar%
-return
-
 ;v1.1.05+からsuper global変数があるが仕様がわからん
 ;sc03a 英数(なぜかトグルする)
 sc070::return ;Kana
-sc029::Escape
+sc029::Escape ;全角/半角トグルキー上書き
 
 ^!Left::Run  , C:\bin\display.exe /rotate:90  , , Hide
 ^!Right::Run , C:\bin\display.exe /rotate:270 , , Hide
@@ -30,37 +23,40 @@ WheelTrans(d){
         return
     }
     Transparent := Transparent + d
-    if (100 <= Transparent && Transparent <= 255){
+    if (10 <= Transparent && Transparent <= 255){
         WinSet, Transparent, %Transparent%, ahk_id %hwnd%
     }
     return
 }
 
-;global v := 0
-;;sc07B & v::MsgBox,% addX(10)
-;;run python "test.py" %hwnd%
-;
-;sc07B & f::
-;    MouseGetPos, x, y, hwnd, ctrl
-;    WinSet, Transparent, 220, ahk_id %hwnd%
-;    return
-;
-;sc07B & g::
-;    MouseGetPos, x, y, hwnd, ctrl
-;    WinSet, Transparent, 255, ahk_id %hwnd%
-;    return
-;
-;
-;sc07B & h::
-;    WinGetTitle, currentWindow, A
-;    IfWinExist %currentWindow%
-;    {
-;        WinSet, Style, ^0xC00000
-;    }
-;;    Send, #left
-;;    Send, #up
-;    return
-;
+
+global v := 0
+;sc07B & v::MsgBox,% addX(10)
+;run python "test.py" %hwnd%
+
+sc07B & a::AppsKey
+
+sc07B & f::
+    MouseGetPos, x, y, hwnd, ctrl
+    WinSet, Transparent, 220, ahk_id %hwnd%
+    return
+
+sc07B & g::
+    MouseGetPos, x, y, hwnd, ctrl
+    WinSet, Transparent, 255, ahk_id %hwnd%
+    return
+
+
+sc07B & h::
+    WinGetTitle, currentWindow, A
+    IfWinExist %currentWindow%
+    {
+        WinSet, Style, ^0xC00000
+    }
+;    Send, #left
+;    Send, #up
+    return
+
 ;sc07B & j::
 ;    Winset, Alwaysontop, , A
 ;    return
@@ -73,22 +69,37 @@ sc079::IME_SET(1)
 
 +0::|
 
-; https://superuser.com/questions/950452/how-to-quickly-move-current-window-to-another-task-view-desktop-in-windows-10
-; shift + windows + left
-+#Left::
-  WinGetTitle, Title, A
-  WinSet, ExStyle, ^0x80, %Title%
-  Send {LWin down}{Ctrl down}{Left}{Ctrl up}{LWin up}
-  sleep, 50
-  WinSet, ExStyle, ^0x80, %Title%
-  WinActivate, %Title%
-Return
+;Touhou
+;j::left
+;k::up
+;l::right
+;space::down
 
-+#Right::
-  WinGetTitle, Title, A
-  WinSet, ExStyle, ^0x80, %Title%
-  Send {LWin down}{Ctrl down}{Right}{Ctrl up}{LWin up}
-  sleep, 50
-  WinSet, ExStyle, ^0x80, %Title%
-  WinActivate, %Title%
-Return
+;Mouse
+AppsKey & LButton::Run , C:\bin\display.exe /rotate:90 /device:1 /toggle , , Hide
+AppsKey & RButton::Run , C:\bin\display.exe /rotate:90 /device:2 /toggle , , Hide
+AppsKey & WheelUp::Volume_Up
+AppsKey & WheelDown::Volume_Down
+AppsKey & WheelLeft::Run , C:\bin\nircmd.exe setprimarydisplay 1 , , Hide
+AppsKey & WheelRight::Run , C:\bin\nircmd.exe setprimarydisplay 2 , , Hide
+AppsKey & Esc::Send #^o
+
+AppsKey::
+    if(winc_presses > 0){
+        winc_presses += 1
+        return
+    }
+    winc_presses := 1
+    SetTimer, Timer1, -400 ;ms
+return
+
+Timer1:
+    if(winc_presses = 1){
+        Send {AppsKey}
+    }else if (winc_presses = 2){
+        Send #p
+    }else if (winc_presses = 3){
+        Send #d
+    }
+    winc_presses := 0
+return
