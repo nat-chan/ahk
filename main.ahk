@@ -60,15 +60,15 @@ sc07B & WheelDown::WheelTrans(-10)
 ;sc079::IME_SET(1)
 ; keymill hex->deci
 vk1A::
-;    IME_SET(0)
-    Send {F13}
+    IME_SET(0)
+;    Send {F13}
 return
 vk16::
-;    IME_SET(1)
-    Send {F14}
+    IME_SET(1)
+;    Send {F14}
 return
-F13::IME_SET(0)
-F14::IME_SET(1)
+;F13::IME_SET(0)
+;F14::IME_SET(1)
 ;vkFF::a
 
 ;    MsgBox % A_ThisHotkey
