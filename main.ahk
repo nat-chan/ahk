@@ -48,15 +48,17 @@ sc07B & h::
     }
 return
 
-sc07B & j::
-    Winset, Alwaysontop, , A
-return
+;sc07B & j::
+;    Winset, Alwaysontop, , A
+;return
 
 sc07B & WheelUp::WheelTrans(10)
 sc07B & WheelDown::WheelTrans(-10)
 
-sc07B::IME_SET(0)
-sc079::IME_SET(1)
+;sc07B::IME_SET(0)
+;sc079::IME_SET(1)
+vk26::b
+vk22::a
 
 +0::|
 
