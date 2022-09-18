@@ -57,8 +57,10 @@ sc07B & WheelDown::WheelTrans(-10)
 
 ;sc07B::IME_SET(0)
 ;sc079::IME_SET(1)
-vk26::b
-vk22::a
+vk1A::IME_SET(0)
+vk16::IME_SET(1)
+sc71::a
+sc71::b
 
 +0::|
 
