@@ -59,10 +59,12 @@ sc07B & WheelDown::WheelTrans(-10)
 ;sc07B::IME_SET(0)
 ;sc079::IME_SET(1)
 ; keymill hex->deci
-vk1A::IME_SET(0)
-vk16::IME_SET(1)
-vkFF::IME_SET(0)
-vk5C::IME_SET(1)
+vk1A::IME_SET(0) ;ホスト側の無変換
+vk16::IME_SET(1) ;ホスト側の変換
+vkFF::IME_SET(0) ;リモート接続先の変換/無変換
+vk5C::IME_SET(1) ;Kana
+vk1D::IME_SET(0) ;無変換
+vk1C::IME_SET(1) ;変換
 ;sc071::a
 ;sc072::b
 
