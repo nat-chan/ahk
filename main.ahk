@@ -28,20 +28,20 @@ WheelTrans(d){
     return
 }
 
-sc07B & a::AppsKey
+vk1A & a::AppsKey
 
-sc07B & f::
+vk1A & f::
     MouseGetPos, x, y, hwnd, ctrl
     WinSet, Transparent, 220, ahk_id %hwnd%
 return
 
-sc07B & g::
+vk1A & g::
     MouseGetPos, x, y, hwnd, ctrl
     WinSet, Transparent, 255, ahk_id %hwnd%
 return
 
 
-sc07B & h::
+vk1A & h::
     WinGetTitle, currentWindow, A
     IfWinExist %currentWindow%
     {
@@ -49,12 +49,12 @@ sc07B & h::
     }
 return
 
-;sc07B & j::
+;vk1A & j::
 ;    Winset, Alwaysontop, , A
 ;return
 
-sc07B & WheelUp::WheelTrans(10)
-sc07B & WheelDown::WheelTrans(-10)
+vk1A & WheelUp::WheelTrans(10)
+vk1A & WheelDown::WheelTrans(-10)
 
 ;sc07B::IME_SET(0)
 ;sc079::IME_SET(1)
