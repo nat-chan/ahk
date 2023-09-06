@@ -73,6 +73,9 @@ vk1C::IME_SET(1) ;変換
 
 +0::|
 
+^[::IME_SET(0)
+^]::IME_SET(1)
+
 ;Touhou
 ;j::left
 ;k::up
